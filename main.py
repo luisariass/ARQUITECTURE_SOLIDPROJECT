@@ -58,13 +58,14 @@ def admin_ubicacion(user):
         ciudad = input("Ciudad: ")
         pais = input("Pais: ")
         user.ubicacio_n= Ubicacion(direccion, ciudad, pais)
-
+        return admin_ubicacion(user)
 
     elif op == 2:
         print(user.ubicacio_n)
+        return admin_ubicacion(user)
 
     elif op == 3:
-        return
+        return menu_comprador()
 
 def admin_interes(user):
     print("Administrar Intereses")
@@ -82,11 +83,13 @@ def admin_interes(user):
         print("Modificar Intereses")
         interes = input("Interes: ")
         user.recomendacione_s = Recomendaciones(interes)
+        return admin_interes(user)
     elif op == 2:
         print(user.recomendacione_s)
+        return admin_interes(user)
 
     elif op == 3:
-        return
+        return menu_comprador()
 
 def admin_beneficios(user):
     print("Administrar Beneficios")
@@ -133,9 +136,9 @@ def admin_beneficios(user):
         print("1. Seguro")
         print(user.servicio_s)
         print("2. Tarjeta")
-        print(user.servicio_t)
+        print(user.servicio_s)
         print("3. Programa de fidelizacion")
-        print(user.servicio_p)
+        print(user.servicio_s)
 
     if op == 3:
         return

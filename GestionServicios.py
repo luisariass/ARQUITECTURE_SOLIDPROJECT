@@ -1,11 +1,10 @@
-from Proveedor import Proveedor
 from Servicioseguro import Servicioseguro
 from Serviciotargeta import Serviciotargeta
 from Servicioprograma import Servicioprograma
 
 
 class GestionServicios():
-    def __init__(self, empresa_proveedora: Proveedor= Proveedor(), valor_servicio: str="", 
+    def __init__(self, empresa_proveedora: str="", valor_servicio: str="", 
                  descripcion_servicio: str="", servicio_s: Servicioseguro=Servicioseguro(), 
                  servicio_t:Serviciotargeta=Serviciotargeta(), servicio_p:Servicioprograma=Servicioprograma()):
         

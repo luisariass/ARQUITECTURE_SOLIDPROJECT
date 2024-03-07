@@ -1,7 +1,7 @@
 from datetime import date
 
 class Serviciotargeta():
-    def __init__(self, cvv="123", ano_expiracion="2023", mes_expiracion="01", 
+    def __init__(self, cvv="", ano_expiracion="", mes_expiracion="", 
                  fecha_expiracion=date.today(), numero=1234567890, zip_codigo=12345):
         self._cvv = cvv
         self._ano_expiracion = ano_expiracion

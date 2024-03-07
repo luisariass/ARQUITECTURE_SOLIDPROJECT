@@ -1,7 +1,7 @@
 from datetime import date
 
 class Servicioprograma():
-    def __init__(self, nombre_programa="Programa predeterminado", tipo_programa="Tipo predeterminado", 
+    def __init__(self, nombre_programa="Sin programa", tipo_programa="Sin programa", 
                  fecha_inicio=date.today()):
         
         self.nombre_programa = nombre_programa

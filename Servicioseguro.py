@@ -1,7 +1,7 @@
 from datetime import date
 
 class Servicioseguro():
-    def __init__(self, tipo_seguro="Tipo predeterminado", numero_poliza="123456", 
+    def __init__(self, tipo_seguro="Sin seguro", numero_poliza="", 
                  fecha_inicio=date.today(), fecha_vencimiento=date.today(), estado_seguro=False,):
         self.__tipo_seguro = tipo_seguro
         self.__numero_poliza = numero_poliza
