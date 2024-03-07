@@ -1,14 +1,18 @@
 class Recomendaciones():
-    def __init__(self):
-        self.intereses = []
-    
-    def agregar_interes(self):
-        print("Agregar interes: ")
-        interes = input("aqui: ")
-        intereses = {"intereses": interes} 
-        self.intereses.append(intereses)
+    def __init__(self, intereses:str="No tiene intereses"):
 
+        self.__intereses = intereses
+    
     def __str__(self):
         return (
-            f"\tIntereses: {self.intereses}"
+            f"\n"
+            f"\t{self.__intereses}\n"
         )
+    
+    @property
+    def intereses(self):
+        return self.__intereses
+    @intereses.setter
+    def intereses(self, intereses:str):
+        self.__intereses = intereses
+

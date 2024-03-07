@@ -6,11 +6,7 @@ class IProveedor(ABC):
         pass
 
     @abstractmethod
-    def consultar(self, idprov):
-        pass
-
-    @abstractmethod
-    def consultarTodos(self):
+    def consultar(self, idprov:int):
         pass
 
     @abstractmethod
@@ -21,7 +17,7 @@ class IProveedor(ABC):
     def eliminar(self, idprov):
         pass
 
-class Proveedor: 
+class Proveedor(IProveedor): 
     def __init__(self, idprov=None, nombre=None, tipo=None, telefono=None, email=None):
         self.proveedores = [
             {'idprov': 1, 'nombre': 'BANCOLOMBIA', 'tipo': 'BANCARIA', 'telefono': '1234567890', 'email': 'bancolombia@email.com'},
@@ -43,3 +39,19 @@ class Proveedor:
         for proveedor in self.proveedores:
             if proveedor['idprov'] == idprov:
                 return proveedor
+        return None
+    
+    def registrar(self, proveedor):
+        self.proveedores.append(proveedor)
+
+    def modificar(self, proveedor):
+        for i in range(len(self.proveedores)):
+            if self.proveedores[i]['idprov'] == proveedor['idprov']:
+                self.proveedores[i] = proveedor
+                break
+
+    def eliminar(self, idprov):
+        for i in range(len(self.proveedores)):
+            if self.proveedores[i]['idprov'] == idprov:
+                del self.proveedores[i]
+                break

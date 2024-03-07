@@ -72,4 +72,8 @@ class Usuarios():
     @property
     def recomendacione_s(self):
         return self.__recomendacione_s
+    @recomendacione_s.setter
+    def recomendacione_s(self, recomendacione_s:Recomendaciones):
+        self.__recomendacione_s = recomendacione_s
+    
     
