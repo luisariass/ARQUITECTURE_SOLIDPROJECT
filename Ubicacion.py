@@ -15,15 +15,22 @@ class Ubicacion():
         )
         
 
-    def get_direccion(self):
-        return self.direccion
-    def set_direccion(self, direccion):
-        self.direccion = direccion
-    def get_ciudad(self):
-        return self.ciudad
-    def set_ciudad(self, ciudad):
-        self.ciudad = ciudad
-    def get_pais(self):
-        return self.pais
-    def set_pais(self, pais):
-        self.pais = pais
+    @property
+    def direccion(self):
+        return self.__direccion
+    @direccion.setter
+    def direccion(self, direccion:str):
+        self.__direccion = direccion
+    @property
+    def ciudad(self):
+        return self.__ciudad
+    @ciudad.setter
+    def ciudad(self, ciudad:str):
+        self.__ciudad = ciudad
+    @property
+    def pais(self):
+        return self.__pais
+    @pais.setter
+    def pais(self, pais:str):
+        self.__pais = pais
+    

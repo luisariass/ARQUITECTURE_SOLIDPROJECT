@@ -9,7 +9,6 @@ class Recomendaciones():
         self.intereses.append(intereses)
 
     def __str__(self):
-        str_intereses = ""
-        for interes in self.intereses:
-            str_intereses += f"{interes['intereses: ']}\n"
-        return str_intereses
+        return (
+            f"\tIntereses: {self.intereses}"
+        )

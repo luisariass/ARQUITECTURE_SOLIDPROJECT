@@ -31,6 +31,3 @@ class Comprador(Usuarios):
             f"Intereses: {self.intereses}\n"
             f"Beneficios: {self.beneficios}\n"
         )
-# Create a Comprador object
-comprador = Comprador(1, "Juan", "a@", "123", "01/01/2000", "M", Ubicacion(), Recomendaciones(), GestionServicios())
-print(comprador)  # Output: Comprador{'ubicacion': Ubicacion{'latitud': 0, 'longitud': 0, 'direccion': , 'ciudad': , 'pais': }, 'intereses': Recomendaciones{'intereses': []}, 'beneficios': GestionServicios{'servicios': []}}

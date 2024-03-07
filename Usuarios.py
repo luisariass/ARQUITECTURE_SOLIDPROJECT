@@ -1,43 +1,75 @@
+from Ubicacion import Ubicacion
+from Recomendaciones import Recomendaciones
+
 class Usuarios():
-    def __init__(self, idusuario, nombre, correo, contrasena, fecha_nacimiento, genero):
-        self.idusuario = idusuario
-        self.nombre = nombre
-        self.correo = correo
-        self.contrasena = contrasena
-        self.fecha_nacimiento = fecha_nacimiento
-        self.genero = genero
-    
-    def get_idusuario(self):
-        return self.idusuario
-    def set_idusuario(self, idusuario):
-        self.idusuario = idusuario
-    def get_nombre(self):
-        return self.nombre
-    def set_nombre(self, nombre):
-        self.nombre = nombre
-    def get_correo(self):
-        return self.correo
-    def set_correo(self, correo):
-        self.correo = correo
-    def get_contrasena(self):
-        return self.contrasena
-    def set_contrasena(self, contrasena):
-        self.contrasena = contrasena
-    def get_fecha_nacimiento(self):
-        return self.fecha_nacimiento
-    def set_fecha_nacimiento(self, fecha_nacimiento):
-        self.fecha_nacimiento = fecha_nacimiento
-    def get_genero(self):
-        return self.genero
-    def set_genero(self, genero):
-        self.genero = genero
+    def __init__(self, idusuario:int=0, nombre:str="", correo:str="", 
+                 contrasena:str="", fecha_nacimiento:str="", genero:str="", 
+                 ubicacio_n:Ubicacion=Ubicacion(), recomendacione_s:Recomendaciones=Recomendaciones()):
+        self.__idusuario = idusuario
+        self.__nombre = nombre
+        self.__correo = correo
+        self.__contrasena = contrasena
+        self.__fecha_nacimiento = fecha_nacimiento
+        self.__genero = genero
+        self.__ubicacio_n = ubicacio_n
+        self.__recomendacione_s = recomendacione_s
 
     def __str__(self):
         return (
-            f"\tIdusuario: {self.idusuario}\n"
-            f"\tNombre: {self.nombre}\n"
-            f"\tCorreo: {self.correo}\n"
-            f"\tContrasena: {self.contrasena}\n"
-            f"\tFecha de nacimiento: {self.fecha_nacimiento}\n"
-            f"\tGenero: {self.genero}\n"
+            f"Usuario:\n"
+            f"\tIdusuario: {self.__idusuario}\n"
+            f"\tNombre: {self.__nombre}\n"
+            f"\tCorreo: {self.__correo}\n"
+            f"\tContrasena: {self.__contrasena}\n"
+            f"\tFecha de nacimiento: {self.__fecha_nacimiento}\n"
+            f"\tGenero: {self.__genero}\n"
+            f"Ubicacion:{self.__ubicacio_n}"
+            f"Intereses: {self.__recomendacione_s}"
         )
+    
+    @property
+    def idusuario(self):
+        return self.__idusuario
+    @idusuario.setter
+    def idusuario(self, idusuario:int):
+        self.__idusuario = idusuario
+    @property
+    def nombre(self):
+        return self.__nombre
+    @nombre.setter
+    def nombre(self, nombre:str):
+        self.__nombre = nombre
+    @property
+    def correo(self):
+        return self.__correo
+    @correo.setter
+    def correo(self, correo:str):
+        self.__correo = correo
+    @property
+    def contrasena(self):
+        return self.__contrasena
+    @contrasena.setter
+    def contrasena(self, contrasena:str):
+        self.__contrasena = contrasena
+    @property
+    def fecha_nacimiento(self):
+        return self.__fecha_nacimiento
+    @fecha_nacimiento.setter
+    def fecha_nacimiento(self, fecha_nacimiento:str):
+        self.__fecha_nacimiento = fecha_nacimiento
+    @property
+    def genero(self):
+        return self.__genero
+    @genero.setter
+    def genero(self, genero:str):
+        self.__genero = genero
+    @property
+    def ubicacio_n(self):
+        return self.__ubicacio_n
+    @ubicacio_n.setter
+    def ubicacio_n(self, ubicacio_n:Ubicacion):
+        self.__ubicacio_n = ubicacio_n
+    @property
+    def recomendacione_s(self):
+        return self.__recomendacione_s
+    
