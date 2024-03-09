@@ -1,6 +1,6 @@
 class Ubicacion():
-    def __init__(self, direccion: str ="predeterminada", ciudad: str = "predetermianda", 
-                 pais: str = "predeterminado"):
+    def __init__(self, direccion: str ="Sin asignar", ciudad: str = "Sin asignar", 
+                 pais: str = "Sin asignar"):
         
         self.__direccion = direccion
         self.__ciudad = ciudad
