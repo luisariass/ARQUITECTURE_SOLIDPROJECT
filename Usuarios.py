@@ -1,10 +1,12 @@
 from Ubicacion import Ubicacion
 from Recomendaciones import Recomendaciones
+from GestionServicios import GestionServicios
 
 class Usuarios():
     def __init__(self, idusuario:int=0, nombre:str="", correo:str="", 
                  contrasena:str="", fecha_nacimiento:str="", genero:str="", 
-                 ubicacio_n:Ubicacion=Ubicacion(), recomendacione_s:Recomendaciones=Recomendaciones()):
+                 ubicacio_n:Ubicacion=Ubicacion(), recomendacione_s:Recomendaciones=Recomendaciones(), 
+                 servicio_S:GestionServicios=GestionServicios()):
         self.__idusuario = idusuario
         self.__nombre = nombre
         self.__correo = correo
@@ -13,6 +15,7 @@ class Usuarios():
         self.__genero = genero
         self.__ubicacio_n = ubicacio_n
         self.__recomendacione_s = recomendacione_s
+        self.__servicio_S = servicio_S
 
     def __str__(self):
         return (
@@ -25,6 +28,13 @@ class Usuarios():
             f"\tGenero: {self.__genero}\n"
             f"Ubicacion:{self.__ubicacio_n}"
             f"Intereses: {self.__recomendacione_s}"
+            '''
+            f"Beneficios seguro: {self.__servicio_S.get_seguros()}"
+            f"Beneficios tarjeta: {self.__servicio_S.get_tarjetas()}"
+            f"Beneficios programa de fidelizacion: {self.__servicio_S.get_programas()}"
+            '''
+
+            
         )
     
     @property
@@ -75,5 +85,8 @@ class Usuarios():
     @recomendacione_s.setter
     def recomendacione_s(self, recomendacione_s:Recomendaciones):
         self.__recomendacione_s = recomendacione_s
+    @property
+    def servicio_S(self):
+        return self.__servicio_S
     
     

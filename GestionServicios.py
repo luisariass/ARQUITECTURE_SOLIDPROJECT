@@ -1,75 +1,87 @@
-from Servicioseguro import Servicioseguro
-from Serviciotargeta import Serviciotargeta
-from Servicioprograma import Servicioprograma
+from abc import ABC, abstractmethod
 
+class iservicioprograma(ABC):
+    @abstractmethod
+    def realizar_servicio(self):
+        pass
+    @abstractmethod
+    def imprimir_servicio(self):
+        pass
 
 class GestionServicios():
-    def __init__(self, empresa_proveedora: str="", valor_servicio: str="", 
-                 descripcion_servicio: str="", servicio_s: Servicioseguro=Servicioseguro(), 
-                 servicio_t:Serviciotargeta=Serviciotargeta(), servicio_p:Servicioprograma=Servicioprograma()):
-        
-        self.__empresa_proveedora = empresa_proveedora
-        self.__valor_servicio = valor_servicio
-        self.__descripcion_servicio = descripcion_servicio
-        self.__servicio_s = servicio_s
-        self.__servicio_t = servicio_t
-        self.__servicio_p = servicio_p
-        #self.__servicios = []
-    
-    def __str__(self):
-        return (
-            f"Proveedor: {self.__empresa_proveedora}\n"
-            f"Valor del servicio: {self.__valor_servicio}\n"
-            f"Descripcion del servicio: {self.__descripcion_servicio}\n"
-            f"Servicio de seguros: {self.__servicio_s}\n"
-            f"Servicio de targeta: {self.__servicio_t}\n"
-            f"Servicio de programa: {self.__servicio_p}\n"
-        )
+    def __init__(self):
+        self.Servicioprograma = self.Servicioprograma()
+        self.Serviciotargeta = self.Serviciotargeta()
+        self.Servicioseguro = self.Servicioseguro()
 
-    @property
-    def empresa_proveedora(self):
-        return self.__empresa_proveedora
+    class Servicioprograma(iservicioprograma, ABC):
+        def __init__(self):
+            self.programas = []
 
-    @empresa_proveedora.setter
-    def empresa_proveedora(self, value):
-        self.__empresa_proveedora = value
+        def realizar_servicio(self):
+            nombre_programa = input("Nombre del programa: ")
+            tipo_programa = input("Tipo de programa: ")
+            fecha_inicio = input("Fecha de inicio: ")
 
-    @property
-    def valor_servicio(self):
-        return self.__valor_servicio
+            programa = {
+                'nombre_programa': nombre_programa,
+                'tipo_programa': tipo_programa,
+                'fecha_inicio': fecha_inicio
+            }
 
-    @valor_servicio.setter
-    def valor_servicio(self, value):
-        self.__valor_servicio = value
+            self.programas.append(programa)
 
-    @property
-    def descripcion_servicio(self):
-        return self.__descripcion_servicio
+        def imprimir_servicio(self):
+            for programa in self.programas:
+                print(programa)
 
-    @descripcion_servicio.setter
-    def descripcion_servicio(self, value):
-        self.__descripcion_servicio = value
+    class Serviciotargeta(iservicioprograma, ABC):
+        def __init__(self):
+            self.tarjetas = []
 
-    @property
-    def servicio_s(self):
-        return self.__servicio_s
+        def realizar_servicio(self):
+            cvv = int(input("Nombre de la tarjeta: "))
+            año_e = input("Tipo de tarjeta: ")
+            mes_m = input("Fecha de vencimiento: ")
+            fehca_v = input("Fecha de vencimiento: ")
+            numero = input("Numero targeta: ")
+            zip = input("Zip code: ")
 
-    @servicio_s.setter
-    def servicio_s(self, value:Servicioseguro):
-        self.__servicio_s = value
+            targeta = {
+                'cvv': cvv,
+                'año_e': año_e,
+                'mes_m': mes_m,
+                'fehca_v': fehca_v,
+                'numero': numero,
+                'zip': zip
+            }
 
-    @property
-    def servicio_t(self):
-        return self.__servicio_t
+            self.tarjetas.append(targeta)
 
-    @servicio_t.setter
-    def servicio_t(self, value:Serviciotargeta):
-        self.__servicio_t = value
+        def imprimir_servicio(self):
+            for targeta in self.tarjetas:
+                print(targeta)
 
-    @property
-    def servicio_p(self):
-        return self.__servicio_p
+    class Servicioseguro(iservicioprograma, ABC):
+        def __init__(self):
+            self.seguros = []
 
-    @servicio_p.setter
-    def servicio_p(self, value:Servicioprograma):
-        self.__servicio_p = value
+        def realizar_servicio(self):
+            nombre_seguro = input("Nombre del seguro: ")
+            tipo_seguro = input("Tipo de seguro: ")
+            fecha_inicio = input("Fecha de inicio: ")
+            fecha_vencimiento = input("Fecha de vencimiento: ")
+            estado = input("Estado: ")
+            
+            seguro = {
+                'nombre_seguro': nombre_seguro,
+                'tipo_seguro': tipo_seguro,
+                'fecha_inicio': fecha_inicio,
+                'fecha_vencimiento': fecha_vencimiento,
+                'estado': estado
+            }
+            self.seguros.append(seguro)
+
+        def imprimir_servicio(self):
+            for seguro in self.seguros:
+                print(seguro)

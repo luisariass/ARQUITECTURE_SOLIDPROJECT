@@ -4,7 +4,9 @@ from Ubicacion import Ubicacion
 from GestionServicios import GestionServicios
 from App import App
 
+
 app = App()
+servicios = GestionServicios()
 
 
 def seleccionar_user():
@@ -14,6 +16,7 @@ def seleccionar_user():
         print("Usuario no encontrado")
         return
     return user
+
 
 def menu_comprador():
     user = seleccionar_user()
@@ -34,11 +37,13 @@ def menu_comprador():
         print("Invalid option")
         op = int(input())
 
-    {1: view_profile, 2: admin_ubicacion, 3:admin_interes, 4:admin_beneficios}[op](user)
+    {1: view_profile, 2: admin_ubicacion, 3: admin_interes, 4: admin_beneficios}[op](user)
+
 
 def view_profile(user):
     print(user)
     return menu_comprador()
+
 
 def admin_ubicacion(user):
     print("Administrar Ubicacion")
@@ -57,7 +62,7 @@ def admin_ubicacion(user):
         direccion = input("Direccion: ")
         ciudad = input("Ciudad: ")
         pais = input("Pais: ")
-        user.ubicacio_n= Ubicacion(direccion, ciudad, pais)
+        user.ubicacio_n = Ubicacion(direccion, ciudad, pais)
         return admin_ubicacion(user)
 
     elif op == 2:
@@ -67,9 +72,10 @@ def admin_ubicacion(user):
     elif op == 3:
         return menu_comprador()
 
+
 def admin_interes(user):
     print("Administrar Intereses")
-    print("1. Modificar Intereses")
+    print("1. Agregar Intereses")
     print("2. Ver Intereses")
     print("3. Salir")
 
@@ -91,13 +97,14 @@ def admin_interes(user):
     elif op == 3:
         return menu_comprador()
 
+
 def admin_beneficios(user):
     print("Administrar Beneficios")
     print("1. Agendar Servicios")
     print("2. Mis Servicios")
-    print("2. Salir")
+    print("3. Salir")
     op = int(input())
-    while op not in range(1, 3):
+    while op not in range(1, 4):
         print("Invalid option")
         op = int(input())
     if op == 1:
@@ -112,38 +119,25 @@ def admin_beneficios(user):
             servicio = int(input())
         if servicio == 1:
             print("Agendar Seguro")
-            empresa_proveedora = input("Empresa proveedora: ")
-            valor_servicio = int(input("Valor del servicio: "))
-            descripcion_servicio = input("Descripcion del servicio: ")
-            user.servicio_s = GestionServicios(empresa_proveedora, valor_servicio, descripcion_servicio)
+            user.servicio_S.Servicioseguro.realizar_servicio()
         if servicio == 2:
             print("Agendar Tarjeta")
-            cvv = input("CVV: ")
-            ano_expiracion = input("Año de expiracion: ")
-            mes_expiracion = input("Mes de expiracion: ")
-            fecha_expiracion = input("Fecha de expiracion (dd/mm/yy): ")
-            numero = int(input("Numero: "))
-            zip_codigo = int(input("Codigo ZIP: "))
-            user.servicio_t = GestionServicios(cvv, ano_expiracion, mes_expiracion, fecha_expiracion, numero, zip_codigo)
+            user.servicio_S.Serviciotargeta.realizar_servicio()
         if servicio == 3:
             print("Agendar Programa de fidelizacion")
-            nombre_programa = input("Nombre del programa: ")
-            tipo_programa = input("Tipo de programa: ")
-            fecha_inicio = input("Fecha de inicio (dd/mm/yy): ")
-            user.servicio_p = GestionServicios(nombre_programa, tipo_programa, fecha_inicio)
-    if op == 2:
-        print("Mis Servicios")
-        print("1. Seguro")
-        print(user.servicio_s)
-        print("2. Tarjeta")
-        print(user.servicio_s)
-        print("3. Programa de fidelizacion")
-        print(user.servicio_s)
+            user.servicio_S.Servicioprograma.realizar_servicio()
+    elif op == 2:
+            print("Mis Servicios")
+            print("1. Seguro")
+            user.servicio_S.Servicioseguro.imprimir_servicio()
+            print("2. Tarjeta")
+            user.servicio_S.Serviciotargeta.imprimir_servicio()
+            print("3. Programa de fidelizacion")
+            user.servicio_S.Servicioprograma.imprimir_servicio()
 
-    if op == 3:
+    elif op == 3:
         return
 
-        
 
 def menu():
     print("Bienvenido a la aplicacion")
@@ -179,9 +173,11 @@ def menu():
         print("Hasta luego")
         exit()
 
+
 def main():
     while True:
         menu()
+
 
 if __name__ == '__main__':
     main()

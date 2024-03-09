@@ -1,16 +1,37 @@
 from datetime import date
+from iservicio import IGestionServicios
 
-class Serviciotargeta():
+class Serviciotargeta(IGestionServicios):
     def __init__(self, cvv="", ano_expiracion="", mes_expiracion="", 
-                 fecha_expiracion=date.today(), numero=1234567890, zip_codigo=12345):
+                 fecha_expiracion=date.today(), numero=1234567890, zip_codigo=12345,
+                 empresa="", valor="", descripcion=""):
         self._cvv = cvv
         self._ano_expiracion = ano_expiracion
         self._mes_expiracion = mes_expiracion
         self._fecha_expiracion = fecha_expiracion
         self._numero = numero
         self._zip_codigo = zip_codigo
+        self.empresa = empresa
+        self.valor = valor
+        self.descripcion = descripcion
 
-    def __str__(self):
+    def realizar_servicio_targeta(self):
+        print("Agendando tarjeta")
+        self.empresa = input("Empresa: ")
+        self.valor= input("Valor: ")
+        self.descripcion = input("Descripcion: ")
+        self._cvv = input("Ingrese el CVV: ")
+        self._ano_expiracion = input("Ingrese el año de expiración: ")
+        self._mes_expiracion = input("Ingrese el mes de expiración: ")
+        self._fecha_expiracion = input("Ingrese la fecha de expiración (dd/mm/yy): ")
+        self._numero = input("Ingrese el número: ")
+        self._zip_codigo = input("Ingrese el código ZIP: ")
+        print("Tarjeta agendada")
+    def realizar_servicio_programa(self):
+        pass
+    def realizar_servicio_seguro(self):
+        pass
+    def imprimir_servicio_targeta(self):
         return (
             f"CVV: {self._cvv}\n"
             f"Año de expiración: {self._ano_expiracion}\n"
@@ -18,8 +39,15 @@ class Serviciotargeta():
             f"Fecha de expiración: {self._fecha_expiracion}\n"
             f"Número: {self._numero}\n"
             f"Código ZIP: {self._zip_codigo}\n"
+            f"Empresa: {self.empresa}\n"
+            f"Valor: {self.valor}\n"
+            f"Descripción: {self.descripcion}\n"
         )
-
+    def imprimir_servicio_programa(self):
+        pass
+    def imprimir_servicio_seguro(self):
+        pass
+    
     @property
     def cvv(self):
         return self._cvv
@@ -67,3 +95,23 @@ class Serviciotargeta():
     @zip_codigo.setter
     def zip_codigo(self, value):
         self._zip_codigo = value
+    
+    @property
+    def empresa(self):
+        return self._empresa
+    @empresa.setter
+    def empresa(self, empresa):
+        self._empresa = empresa
+    @property
+    def valor(self):
+        return self._valor
+    @valor.setter
+    def valor(self, valor):
+        self._valor = valor
+    @property
+    def descripcion(self):
+        return self._descripcion
+    @descripcion.setter
+    def descripcion(self, descripcion):
+        self._descripcion = descripcion
+    

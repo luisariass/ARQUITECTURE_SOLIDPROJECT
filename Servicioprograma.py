@@ -1,35 +1,41 @@
-from datetime import date
+from abc import ABC
+#from datetime import date
+#from iservicio import IGestionServicios
 
-class Servicioprograma():
-    def __init__(self, nombre_programa="Sin programa", tipo_programa="Sin programa", 
-                 fecha_inicio=date.today()):
-        
-        self.nombre_programa = nombre_programa
-        self.tipo_programa = tipo_programa
-        self.fecha_inicio = fecha_inicio
+class iservicioprograma(ABC):
+    def realizar_servicio_programa(self):
+        pass
+    def imprimir_servicio_programa(self):
+        pass
 
-    def __str__(self):
-        return(
-            f"Nombre del programa: {self.nombre_programa}\n"
-            f"Tipo de programa: {self.tipo_programa}\n"
-            f"Fecha de inicio: {self.fecha_inicio}\n"
-        )
-    
-    @property
-    def nombre_programa(self):
-        return self.__nombre_programa
-    @nombre_programa.setter
-    def nombre_programa(self, nombre_programa):
-        self.__nombre_programa = nombre_programa
-    @property
-    def tipo_programa(self):
-        return self.__tipo_programa
-    @tipo_programa.setter
-    def tipo_programa(self, tipo_programa):
-        self.__tipo_programa = tipo_programa
-    @property
-    def fecha_inicio(self):
-        return self.__fecha_inicio
-    @fecha_inicio.setter
-    def fecha_inicio(self, fecha_inicio):
-        self.__fecha_inicio = fecha_inicio
+class Servicioprograma(iservicioprograma, ABC):
+    def __init__(self):
+        self.programas = []
+
+    def agregar_programa(self):
+        nombre_programa = input("Nombre del programa: ")
+        tipo_programa = input("Tipo de programa: ")
+        fecha_inicio = input("Fecha de inicio: ")
+
+        programa = {
+            'nombre_programa': nombre_programa,
+            'tipo_programa': tipo_programa,
+            'fecha_inicio': fecha_inicio
+        }
+
+        self.programas.append(programa)
+
+    def mostrar_programas(self):
+        for programa in self.programas:
+            print(programa)
+
+class Serviciotargeta(iservicioprograma, ABC):
+    def realizar_servicio_targeta(self):
+        print("Agendando tarjeta")
+        nombre_tarjeta = input("Nombre de la tarjeta: ")
+        tipo_tarjeta = input("Tipo de tarjeta: ")
+        fecha_vencimiento = input("Fecha de vencimiento: ")
+        return f"Tarjeta agendada: {nombre_tarjeta}, {tipo_tarjeta}, {fecha_vencimiento}"
+
+    def imprimir_servicio_targeta(self):
+        pass

@@ -1,7 +1,7 @@
 class Recomendaciones():
     def __init__(self, intereses:str="No tiene intereses"):
 
-        self.__intereses = intereses
+        self.__intereses = []
     
     def __str__(self):
         return (

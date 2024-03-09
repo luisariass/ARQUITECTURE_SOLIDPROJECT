@@ -1,4 +1,5 @@
 class App():
+    access_log: dict[str, dict[str, int]] = {}
     def __init__(self):
         self.__usuarios = []
 
@@ -19,5 +20,8 @@ class App():
             if usuario.idusuario == user_id:
                 return usuario
         return None
+    @property
+    def usuarios(self):
+        return self.__usuarios
 
 
