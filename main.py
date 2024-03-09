@@ -1,12 +1,9 @@
 from Recomendaciones import Recomendaciones
 from Usuarios import Usuarios
 from Ubicacion import Ubicacion
-from GestionServicios import GestionServicios
 from App import App
 
-
 app = App()
-servicios = GestionServicios()
 
 
 def seleccionar_user():
@@ -127,13 +124,13 @@ def admin_beneficios(user):
             print("Agendar Programa de fidelizacion")
             user.servicio_S.Servicioprograma.realizar_servicio()
     elif op == 2:
-            print("Mis Servicios")
-            print("1. Seguro")
-            user.servicio_S.Servicioseguro.imprimir_servicio()
-            print("2. Tarjeta")
-            user.servicio_S.Serviciotargeta.imprimir_servicio()
-            print("3. Programa de fidelizacion")
-            user.servicio_S.Servicioprograma.imprimir_servicio()
+        print("Mis Servicios")
+        print("1. Seguro")
+        user.servicio_S.Servicioseguro.imprimir_servicio()
+        print("2. Tarjeta")
+        user.servicio_S.Serviciotargeta.imprimir_servicio()
+        print("3. Programa de fidelizacion")
+        user.servicio_S.Servicioprograma.imprimir_servicio()
 
     elif op == 3:
         return

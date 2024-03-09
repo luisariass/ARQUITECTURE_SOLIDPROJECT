@@ -1,20 +1,23 @@
 from abc import ABC, abstractmethod
 
-class iservicioprograma(ABC):
+
+class IGestionservicios(ABC):
     @abstractmethod
     def realizar_servicio(self):
         pass
+
     @abstractmethod
     def imprimir_servicio(self):
         pass
 
-class GestionServicios():
+
+class GestionServicios:
     def __init__(self):
         self.Servicioprograma = self.Servicioprograma()
         self.Serviciotargeta = self.Serviciotargeta()
         self.Servicioseguro = self.Servicioseguro()
 
-    class Servicioprograma(iservicioprograma, ABC):
+    class Servicioprograma(IGestionservicios, ABC):
         def __init__(self):
             self.programas = []
 
@@ -35,21 +38,21 @@ class GestionServicios():
             for programa in self.programas:
                 print(programa)
 
-    class Serviciotargeta(iservicioprograma, ABC):
+    class Serviciotargeta(IGestionservicios, ABC):
         def __init__(self):
             self.tarjetas = []
 
         def realizar_servicio(self):
-            cvv = int(input("Nombre de la tarjeta: "))
-            año_e = input("Tipo de tarjeta: ")
-            mes_m = input("Fecha de vencimiento: ")
+            cvv = (input("Nombre de la tarjeta: "))
+            anio_e = input("Tipo de tarjeta: ")
+            mes_m = input("Mes de vencimiento: ")
             fehca_v = input("Fecha de vencimiento: ")
             numero = input("Numero targeta: ")
             zip = input("Zip code: ")
 
             targeta = {
-                'cvv': cvv,
-                'año_e': año_e,
+                'nombre': cvv,
+                'anio_e': anio_e,
                 'mes_m': mes_m,
                 'fehca_v': fehca_v,
                 'numero': numero,
@@ -62,7 +65,7 @@ class GestionServicios():
             for targeta in self.tarjetas:
                 print(targeta)
 
-    class Servicioseguro(iservicioprograma, ABC):
+    class Servicioseguro(IGestionservicios, ABC):
         def __init__(self):
             self.seguros = []
 
@@ -72,7 +75,7 @@ class GestionServicios():
             fecha_inicio = input("Fecha de inicio: ")
             fecha_vencimiento = input("Fecha de vencimiento: ")
             estado = input("Estado: ")
-            
+
             seguro = {
                 'nombre_seguro': nombre_seguro,
                 'tipo_seguro': tipo_seguro,
