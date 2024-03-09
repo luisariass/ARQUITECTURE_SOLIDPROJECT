@@ -25,5 +25,6 @@ para este cuarto principio, Los clientes no deben ser forzados a depender de int
 Los módulos de alto nivel no deberían depender de los módulos de bajo nivel. Ambos deberían depender de abstracciones. Tu clase GestionServicios depende de las clases concretas Servicioseguro, Serviciotargeta, y Servicioprograma. lo cual es poco para poder seguir los lineamientos de este principio, se podria optimizar si defino las clases base abstractas o interfaces para estos servicios, y hacer asi que GestionServicios dependa de estas abstracciones en lugar de las clases concretas.
 
 ## Diagrama de clases 
+![buenobueno](https://github.com/luisariass/ARQUITECTURE_SOLIDPROJECT/assets/141878301/2e8a60d0-2443-4d78-9f89-4d9b40770ce7)
 
 
