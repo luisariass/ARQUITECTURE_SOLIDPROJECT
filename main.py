@@ -43,7 +43,7 @@ def view_profile(user):
 
 
 def admin_ubicacion(user):
-    print("Administrar Ubicacion")
+    print("Administrar Ubicaciona")
     print("1. Modificar Ubicacion")
     print("2. Ver Ubicacion")
     print("3. Salir")
